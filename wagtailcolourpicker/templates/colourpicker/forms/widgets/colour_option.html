@@ -1,0 +1,9 @@
+{% include "django/forms/widgets/input.html" %}
+
+{% if widget.label|first in '.' %}
+<label class="background: bg-{{ widget.value }}" {% if widget.attrs.id %} for="{{ widget.attrs.id }}"{% endif %}></label>
+<div class="{{ widget.label|slice:"1:" }}"><small>{{ widget.value }}</small></div>
+{% else %}
+<label style="background: {{ widget.label }}" {% if widget.attrs.id %} for="{{ widget.attrs.id }}"{% endif %}></label>
+<div style="color: {{ widget.label }};"><small>{{ widget.value }}</small></div>
+{% endif %}
